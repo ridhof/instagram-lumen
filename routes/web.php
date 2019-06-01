@@ -21,6 +21,8 @@ $router->group(['prefix'=>'api/v1'], function() use($router){
         $router->post('/register', 'UserController@register');
         $router->post('/login', 'UserController@login');
         // $router->post('/login/{username}', 'UserController@login');
+        $router->post('/nama', 'UserController@nama');
+        $router->post('/profil', 'UserController@profile');
         $router->get('/users', 'UserController@index');
         $router->post('/cari', 'UserController@cari');
     });

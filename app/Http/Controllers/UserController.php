@@ -19,7 +19,7 @@ class UserController extends Controller
 
     public function index(){
         $user = DB::table('user')->get();
-        return $user;
+        return response()->json($user);
     }
 
     public function register(Request $request){
@@ -48,9 +48,35 @@ class UserController extends Controller
     public function cari(Request $request){
         // $query = $request->query;
         $users = DB::table('user')
+                        ->select('username', 'nama')
                         ->where('nama', 'like', "%$request->nama%")
                         ->limit(5)
                         ->get();
-        return $users;
+        return response()->json($users);
+    }
+
+    public function nama(Request $request){
+        $users = DB::table('user')
+                        ->select('nama')
+                        ->where('username', '=', $request->username)
+                        ->limit(1)
+                        ->get();
+        return response()->json($users);
+    }
+
+    public function profile(Request $request){
+        $jumlah_post = DB::table('posting')
+                        ->where('username', $request->username)
+                        ->count();
+        $jumlah_foto = DB::table('gambar')
+                        ->join('posting', 'gambar.idposting', '=', 'posting.idposting')
+                        ->where('posting.username', '=', $request->username)
+                        ->count();
+        $jumlah_like = DB::table('jempol_like')
+                        ->join('posting', 'jempol_like.idposting', '=', 'posting.idposting')
+                        ->where('posting.username', '=', $request->username)
+                        ->count();
+        $profil = array("post"=>$jumlah_post, "foto"=>$jumlah_foto, "like"=>$jumlah_like);
+        return response()->json($profil);
     }
 }
