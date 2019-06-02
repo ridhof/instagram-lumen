@@ -20,11 +20,25 @@ $router->group(['prefix'=>'api/v1'], function() use($router){
     $router->group(['prefix'=>'user'], function () use($router){
         $router->post('/register', 'UserController@register');
         $router->post('/login', 'UserController@login');
-        // $router->post('/login/{username}', 'UserController@login');
         $router->post('/nama', 'UserController@nama');
         $router->post('/profil', 'UserController@profile');
         $router->get('/users', 'UserController@index');
         $router->post('/cari', 'UserController@cari');
+    });
+
+    $router->group(['prefix'=>'post'], function() use($router){
+        $router->get('/', 'PostController@index');
+        $router->get('/thumbnail/{username}', 'PostController@thumbnail');
+        $router->get('/{id}', 'PostController@postById');
+    });
+
+    $router->group(['prefix'=>'komentar'], function() use($router){
+        $router->post('/', 'PostController@createComment');
+    });
+
+    $router->group(['prefix'=>'like'], function() use($router){
+        $router->get('/{id}/{username}', 'PostController@likeCertainUser');
+        $router->post('/', 'PostController@createLike');
     });
 });
 
