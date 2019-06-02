@@ -1,5 +1,5 @@
 # Instagram Lumen
-## Backend services for Instagram (coursework) built using Lumen Framework (PHP) and Unit Testing using phpunit
+Backend services for Instagram (coursework) built using Lumen Framework (PHP) and Unit Testing using phpunit
 
 Instagram is widely used SNS that mainly focused on media sharing including photos and videos. In this coursework, I'm made photos sharing (not yet including the create, update and delete images) backend like Instagram using Lumen. Lumen is a framework built using PHP for backend. Lumen is light, and its suited for API. Since I only make backend on this repo, I use Lumen for simple yet powerful framework. 
 
