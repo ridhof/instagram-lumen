@@ -22,6 +22,6 @@ vendor/bin/phpunit --filter=<Your Unit Test Function Name>
 ### Postman API Documentation
 
 Here is the Postman API Documentation: 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/70b4270fa344c541fa18)
+[link](https://documenter.getpostman.com/view/4571668/S1TVYJVd?version=latest)
 
 Documentation will coming soon!
