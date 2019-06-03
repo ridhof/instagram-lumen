@@ -39,7 +39,7 @@ class PostController extends Controller
                             ->join('posting', 'gambar.idposting', '=', 'posting.idposting')
                             ->where('posting.username', '=', $username)
                             ->get();
-        $url = "localhost:8000/public/images/";
+        $url = "localhost:8000/images/";
         $data = array();
         $idpost_cek = array();
         foreach($thumbnail as $row){
