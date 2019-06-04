@@ -61,7 +61,7 @@ class PostController extends Controller
         $gambar_query = DB::table('gambar')
                             ->where('gambar.idposting', '=', $id)
                             ->get();
-        $url = "localhost:8000/public/images/";
+        $url = "localhost:8000/images/";
         foreach($gambar_query as $row){
             $gambar[] = array(
                 'id_gambar'=>$row->idgambar, //number
