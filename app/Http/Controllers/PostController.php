@@ -48,7 +48,7 @@ class PostController extends Controller
             if(!in_array($row->idposting, $idpost_cek)){
                 $idpost_cek[] = $row->idposting;
                 $data[] = array(
-                    'id_gambar'=>$row->idgambar, //number
+                    'id_gambar'=>$row->idposting, //number
                     'url_gambar'=>$url.$row->idgambar.$row->extention //string url to each images
                 );
             }
